@@ -17,23 +17,11 @@ public class KafkaJsonProducer {
     private final KafkaTemplate<String, Student> kafkaTemplate;
 
     public void sendMessage(Student student) {
-        System.out.println("I am in the SendMessage Json before");
         Message<Student> message = MessageBuilder
                 .withPayload(student)
-                .setHeader(KafkaHeaders.TOPIC, "alibou")
+                .setHeader(KafkaHeaders.TOPIC, "aya")
                 .build();
 
-        System.out.println("I am in the SendMessage Json after");
         kafkaTemplate.send(message);
-        System.out.println("I am after kafka template");
-
-
-//        Message<Student> message = MessageBuilder
-//                .withPayload(student)
-//                .setHeader(KafkaHeaders.TOPIC, "aya")
-//                .build();
-//
-//        kafkaTemplate.send(message);
-
     }
 }
